@@ -1,0 +1,174 @@
+[versions]
+versionMajor = "1"
+versionMinor = "0"
+versionPatch = "0"
+
+# Core
+minSdk = "24"
+targetSdk = "35"
+compileSdk = "35"
+agp = "8.8.0"
+kotlin = "2.1.0"
+kotlinJvmTarget = "11"
+ksp = "2.1.0-1.0.29"
+easylauncherVersion = "6.4.0"
+detekt = "1.23.7"
+
+# AndroidX
+coreKtx = "1.15.0"
+appcompat = "1.7.0"
+material = "1.12.0"
+lifecycleRuntimeKtx = "2.8.7"
+activityCompose = "1.10.0"
+composeBom = "2025.01.00"
+composeNavigation = "2.8.5"
+splashScreen = "1.2.0-alpha02"
+
+# UI
+coil = "3.0.4"
+
+# coroutines
+coroutines-core = "1.9.0"
+coroutines-android = "1.9.0"
+
+# koin
+koin-bom = "4.1.0-Beta5"
+
+# Network
+ktor-bom = "3.0.3"
+kotlinxSerializationJson = "1.8.0"
+
+# Security
+security-crypto = "1.1.0-alpha06"
+
+# Pluto
+pluto = "2.2.2"
+
+# Test
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+
+[libraries]
+# AndroidX
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+splash-screen = { module = "androidx.core:core-splashscreen", version.ref = "splashScreen" }
+coil = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coil" }
+coil-network = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil" }
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
+
+# Lifecycle
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
+
+# coroutines
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-core" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines-android" }
+
+# Koin
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-android = { module = "io.insert-koin:koin-android" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose"}
+koin-startup = { module = "io.insert-koin:koin-androidx-startup" }
+
+# Network
+ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktor-bom" }
+ktor-client = { module = "io.ktor:ktor-client-android" }
+ktor-serialization = { module = "io.ktor:ktor-client-serialization" }
+ktor-logging = { module = "io.ktor:ktor-client-logging" }
+ktor-negotiation = { module = "io.ktor:ktor-client-content-negotiation" }
+ktor-json = {module = "io.ktor:ktor-serialization-kotlinx-json"}
+ktor-mock = { module = "io.ktor:ktor-client-mock" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+# Security
+security-crypto = { module = "androidx.security:security-crypto", version.ref = "security-crypto" }
+
+# Pluto Debug
+pluto-debug = { module = "com.plutolib:pluto", version.ref = "pluto" }
+plutoNetwork-debug = { module = "com.plutolib.plugins:network", version.ref = "pluto" }
+plutoKtor-debug = { module = "com.plutolib.plugins:network-interceptor-ktor", version.ref = "pluto" }
+plutoLogger-debug = { module = "com.plutolib.plugins:logger", version.ref = "pluto" }
+
+# Pluto Prod
+pluto-prod = { module = "com.plutolib:pluto-no-op", version.ref = "pluto" }
+plutoNetwork-prod = { module = "com.plutolib.plugins:network-no-op", version.ref = "pluto" }
+plutoKtor-prod = { module = "com.plutolib.plugins:network-interceptor-ktor-no-op", version.ref = "pluto" }
+plutoLogger-prod = { module = "com.plutolib.plugins:logger-no-op", version.ref = "pluto" }
+
+# Test
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
+[bundles]
+composeUiBundle = [
+    "androidx-core-ktx",
+    "androidx-lifecycle-runtime-ktx",
+    "androidx-ui",
+    "androidx-ui-graphics",
+    "androidx-ui-tooling-preview",
+    "androidx-material3",
+    "compose-navigation",
+    "coil",
+    "coil-svg",
+    "coil-network",
+]
+
+koinBundle = [
+    "koin-core",
+    "koin-android",
+    "koin-compose",
+    "koin-startup",
+]
+
+coroutinesBundle = [
+    "coroutines-core",
+    "coroutines-android"
+]
+
+ktorBundle = [
+    "ktor-client",
+    "ktor-serialization",
+    "ktor-logging",
+    "ktor-negotiation",
+    "ktor-json",
+    "ktor-mock"
+]
+
+plutoDebugBundle = [
+    "pluto-debug",
+    "plutoNetwork-debug",
+    "plutoKtor-debug",
+    "plutoLogger-debug",
+]
+plutoProdBundle = [
+    "pluto-prod",
+    "plutoNetwork-prod",
+    "plutoKtor-prod",
+    "plutoLogger-prod",
+]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+easylauncher = { id = "com.starter.easylauncher", version.ref = "easylauncherVersion" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

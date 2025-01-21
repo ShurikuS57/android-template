@@ -1,0 +1,93 @@
+{
+  "data": {
+    "mal_id": 52991,
+    "url": "https://myanimelist.net/manga/52991/Pushover",
+    "images": {
+      "jpg": {
+        "image_url": "https://cdn.myanimelist.net/images/manga/2/93181.jpg",
+        "small_image_url": "https://cdn.myanimelist.net/images/manga/2/93181t.jpg",
+        "large_image_url": "https://cdn.myanimelist.net/images/manga/2/93181l.jpg"
+      },
+      "webp": {
+        "image_url": "https://cdn.myanimelist.net/images/manga/2/93181.webp",
+        "small_image_url": "https://cdn.myanimelist.net/images/manga/2/93181t.webp",
+        "large_image_url": "https://cdn.myanimelist.net/images/manga/2/93181l.webp"
+      }
+    },
+    "approved": true,
+    "titles": [
+      {
+        "type": "Default",
+        "title": "Pushover"
+      },
+      {
+        "type": "Japanese",
+        "title": "プッシオーバー"
+      }
+    ],
+    "title": "Pushover",
+    "title_english": null,
+    "title_japanese": "プッシオーバー",
+    "title_synonyms": [],
+    "type": "One-shot",
+    "chapters": 1,
+    "volumes": null,
+    "status": "Finished",
+    "publishing": false,
+    "published": {
+      "from": "2012-06-14T00:00:00+00:00",
+      "to": null,
+      "prop": {
+        "from": {
+          "day": 14,
+          "month": 6,
+          "year": 2012
+        },
+        "to": {
+          "day": null,
+          "month": null,
+          "year": null
+        }
+      },
+      "string": "Jun 14, 2012"
+    },
+    "score": null,
+    "scored": null,
+    "scored_by": null,
+    "rank": null,
+    "popularity": 43610,
+    "members": 128,
+    "favorites": 0,
+    "synopsis": null,
+    "background": null,
+    "authors": [
+      {
+        "mal_id": 22997,
+        "type": "people",
+        "name": "Benimura, Karu",
+        "url": "https://myanimelist.net/people/22997/Karu_Benimura"
+      }
+    ],
+    "serializations": [
+      {
+        "mal_id": 581,
+        "type": "manga",
+        "name": "Comic Kairaku-ten Beast",
+        "url": "https://myanimelist.net/manga/magazine/581/Comic_Kairaku-ten_Beast"
+      }
+    ],
+    "genres": [
+      {
+        "mal_id": 12,
+        "type": "manga",
+        "name": "Hentai",
+        "url": "https://myanimelist.net/manga/genre/12/Hentai"
+      }
+    ],
+    "explicit_genres": [],
+    "themes": [],
+    "demographics": [],
+    "relations": [],
+    "external": []
+  }
+}

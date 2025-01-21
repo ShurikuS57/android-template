@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>EmptyClassBlock:Const.kt$Const${ }</ID>
+    <ID>EmptyFunctionBlock:DetailsVM.kt$DetailsVM${}</ID>
+    <ID>EmptyFunctionBlock:MangaTopVM.kt$MangaTopVM${}</ID>
+    <ID>MagicNumber:ThrowableHandler.kt$ThrowableHandler$500</ID>
+    <ID>MatchingDeclarationName:Theme.kt$AppTheme</ID>
+    <ID>MaxLineLength:ThrowableHandler.kt$ThrowableHandler$"Error executing service call: ${response.request.method.value} ${response.request.url} (${response.status})"</ID>
+    <ID>NewLineAtEndOfFile:ActionButton.kt$io.taptm.designsystem.component.buttom.ActionButton.kt</ID>
+    <ID>NewLineAtEndOfFile:AnimeTopContract.kt$io.taptm.tops.screens.animeTop.presenter.AnimeTopContract.kt</ID>
+    <ID>NewLineAtEndOfFile:AnimeTopMapper.kt$io.taptm.tops.screens.animeTop.mapper.AnimeTopMapper.kt</ID>
+    <ID>NewLineAtEndOfFile:AnimeTopRepo.kt$io.taptm.tops.screens.animeTop.repo.AnimeTopRepo.kt</ID>
+    <ID>NewLineAtEndOfFile:AnimeTopScreen.kt$io.taptm.tops.screens.animeTop.presenter.AnimeTopScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:AnimeTopVM.kt$io.taptm.tops.screens.animeTop.presenter.AnimeTopVM.kt</ID>
+    <ID>NewLineAtEndOfFile:ApiService.kt$io.taptm.network.ApiService.kt</ID>
+    <ID>NewLineAtEndOfFile:AppLogger.kt$.AppLogger.kt</ID>
+    <ID>NewLineAtEndOfFile:AppNavRoute.kt$io.taptm.navigation.AppNavRoute.kt</ID>
+    <ID>NewLineAtEndOfFile:AsyncImageBox.kt$io.taptm.designsystem.component.images.AsyncImageBox.kt</ID>
+    <ID>NewLineAtEndOfFile:BaseMviViewModel.kt$io.taptm.common.arch.BaseMviViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:BottomNavigationBar.kt$io.taptm.designsystem.component.bottomTab.BottomNavigationBar.kt</ID>
+    <ID>NewLineAtEndOfFile:BottomNavigationItem.kt$io.taptm.designsystem.component.bottomTab.BottomNavigationItem.kt</ID>
+    <ID>NewLineAtEndOfFile:ComposeUtils.kt$io.taptm.designsystem.ext.ComposeUtils.kt</ID>
+    <ID>NewLineAtEndOfFile:Const.kt$io.taptm.common.Const.kt</ID>
+    <ID>NewLineAtEndOfFile:DetailsContract.kt$io.taptm.tops.screens.details.presentation.DetailsContract.kt</ID>
+    <ID>NewLineAtEndOfFile:DetailsEntity.kt$io.taptm.tops.screens.details.models.DetailsEntity.kt</ID>
+    <ID>NewLineAtEndOfFile:DetailsMapper.kt$io.taptm.tops.screens.details.mapper.DetailsMapper.kt</ID>
+    <ID>NewLineAtEndOfFile:DetailsRepo.kt$io.taptm.tops.screens.details.repo.DetailsRepo.kt</ID>
+    <ID>NewLineAtEndOfFile:DetailsScreen.kt$io.taptm.tops.screens.details.presentation.DetailsScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:DetailsVM.kt$io.taptm.tops.screens.details.presentation.DetailsVM.kt</ID>
+    <ID>NewLineAtEndOfFile:ErrorDialog.kt$io.taptm.designsystem.component.layout.ErrorDialog.kt</ID>
+    <ID>NewLineAtEndOfFile:ErrorEntity.kt$io.taptm.common.models.ErrorEntity.kt</ID>
+    <ID>NewLineAtEndOfFile:ErrorPlaceHolderLayout.kt$io.taptm.designsystem.component.layout.ErrorPlaceHolderLayout.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleInstrumentedTest.kt$io.taptm.sample.ExampleInstrumentedTest.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleUnitTest.kt$io.taptm.sample.ExampleUnitTest.kt</ID>
+    <ID>NewLineAtEndOfFile:Flavor.kt$io.taptm.common.Flavor.kt</ID>
+    <ID>NewLineAtEndOfFile:LoadingLayout.kt$io.taptm.designsystem.component.layout.LoadingLayout.kt</ID>
+    <ID>NewLineAtEndOfFile:MangaTopContract.kt$io.taptm.tops.screens.mangaTop.presenter.MangaTopContract.kt</ID>
+    <ID>NewLineAtEndOfFile:MangaTopEntity.kt$io.taptm.tops.screens.mangaTop.models.MangaTopEntity.kt</ID>
+    <ID>NewLineAtEndOfFile:MangaTopRepo.kt$io.taptm.tops.screens.mangaTop.repo.MangaTopRepo.kt</ID>
+    <ID>NewLineAtEndOfFile:MangaTopScreen.kt$io.taptm.tops.screens.mangaTop.presenter.MangaTopScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:MangaTopVM.kt$io.taptm.tops.screens.mangaTop.presenter.MangaTopVM.kt</ID>
+    <ID>NewLineAtEndOfFile:MockEntity.kt$io.taptm.mock.MockEntity.kt</ID>
+    <ID>NewLineAtEndOfFile:MockUtils.kt$io.taptm.mock.MockUtils.kt</ID>
+    <ID>NewLineAtEndOfFile:NetworkModule.kt$io.taptm.network.di.NetworkModule.kt</ID>
+    <ID>NewLineAtEndOfFile:Padding.kt$io.taptm.designsystem.ext.Padding.kt</ID>
+    <ID>NewLineAtEndOfFile:PlutoLogger.kt$io.taptm.logger.PlutoLogger.kt</ID>
+    <ID>NewLineAtEndOfFile:PrefsModules.kt$io.taptm.prefs.di.PrefsModules.kt</ID>
+    <ID>NewLineAtEndOfFile:PullToRefreshComponent.kt$io.taptm.designsystem.component.pulltorefresh.PullToRefreshComponent.kt</ID>
+    <ID>NewLineAtEndOfFile:RepoResult.kt$io.taptm.network.models.RepoResult.kt</ID>
+    <ID>NewLineAtEndOfFile:RoundedCornerShape.kt$io.taptm.designsystem.ext.RoundedCornerShape.kt</ID>
+    <ID>NewLineAtEndOfFile:SafeApiCall.kt$io.taptm.network.utils.SafeApiCall.kt</ID>
+    <ID>NewLineAtEndOfFile:ScaffoldComponent.kt$io.taptm.designsystem.component.scaffold.ScaffoldComponent.kt</ID>
+    <ID>NewLineAtEndOfFile:ScreenState.kt$io.taptm.designsystem.component.scaffold.ScreenState.kt</ID>
+    <ID>NewLineAtEndOfFile:Spacer.kt$io.taptm.designsystem.ext.Spacer.kt</ID>
+    <ID>NewLineAtEndOfFile:TabNavRoute.kt$io.taptm.navigation.TabNavRoute.kt</ID>
+    <ID>NewLineAtEndOfFile:Theme.kt$io.taptm.designsystem.theme.Theme.kt</ID>
+    <ID>NewLineAtEndOfFile:ThemeSwitcher.kt$io.taptm.themeSwicher.ThemeSwitcher.kt</ID>
+    <ID>NewLineAtEndOfFile:ThemeSwitcherModule.kt$io.taptm.themeSwicher.di.ThemeSwitcherModule.kt</ID>
+    <ID>NewLineAtEndOfFile:ThemeVM.kt$io.taptm.themeSwicher.ThemeVM.kt</ID>
+    <ID>NewLineAtEndOfFile:ThrowableHandler.kt$io.taptm.network.utils.ThrowableHandler.kt</ID>
+    <ID>NewLineAtEndOfFile:TopAnimeEntity.kt$io.taptm.tops.screens.animeTop.models.TopAnimeEntity.kt</ID>
+    <ID>NewLineAtEndOfFile:TopsModules.kt$io.taptm.tops.di.TopsModules.kt</ID>
+    <ID>NewLineAtEndOfFile:TopsNavigation.kt$io.taptm.tops.navigation.TopsNavigation.kt</ID>
+    <ID>NewLineAtEndOfFile:Type.kt$io.taptm.designsystem.theme.Type.kt</ID>
+    <ID>NewLineAtEndOfFile:build.gradle.kts$.build.gradle.kts</ID>
+    <ID>RethrowCaughtException:MockUtils.kt$throw e</ID>
+    <ID>TooGenericExceptionCaught:SafeApiCall.kt$error: Throwable</ID>
+    <ID>UnusedParameter:HttpClient.kt$context: Context</ID>
+    <ID>UnusedPrivateProperty:AnimeTopVM.kt$AnimeTopVM$private val prefs: PrefsRepository</ID>
+    <ID>UseRequire:MockUtils.kt$MockUtils$throw IllegalArgumentException("Mock data size more 1")</ID>
+    <ID>WildcardImport:ExampleInstrumentedTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:ExampleUnitTest.kt$import org.junit.Assert.*</ID>
+  </CurrentIssues>
+</SmellBaseline>
