@@ -1,0 +1,44 @@
+package ${packageName}.screens.stub.presentation
+
+import androidx.lifecycle.viewModelScope
+import io.taptm.common.arch.BaseMviViewModel
+import io.taptm.designsystem.component.scaffold.ScreenState
+import io.taptm.network.models.RepoResult
+import ${packageName}.screens.stub.repo.${ClassName}Repo
+import kotlinx.coroutines.launch
+
+internal class ${ClassName}VM(
+    private val repo: ${ClassName}Repo
+) : BaseMviViewModel<Event, State, Effect>() {
+
+    init {
+        loadDate()
+    }
+
+    override fun createInitialState(): State = State(ScreenState.Loading)
+
+    override fun handleEvent(event: Event) {}
+
+    private fun loadDate() {
+        viewModelScope.launch {
+            when (val result = repo.get${ClassName}()) {
+                is RepoResult.Error -> {
+                    setState {
+                        currentState.copy(
+                            screenState = ScreenState.ErrorPlaceHolder(result.error)
+                        )
+                    }
+                }
+
+                is RepoResult.Success -> {
+                    setState {
+                        currentState.copy(
+                            screenState = ScreenState.Success,
+                            data = result.data
+                        )
+                    }
+                }
+            }
+        }
+    }
+}

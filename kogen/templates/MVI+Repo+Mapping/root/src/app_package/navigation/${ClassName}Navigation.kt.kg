@@ -1,0 +1,14 @@
+package ${packageName}.navigation
+
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
+import ${packageName}.screens.stub.presentation.${ClassName}Screen
+
+fun NavGraphBuilder.${FuncName}Navigation(appNavController: NavController, innerPadding: PaddingValues) {
+
+    composable<Unit> {
+        ${ClassName}Screen()
+    }
+}

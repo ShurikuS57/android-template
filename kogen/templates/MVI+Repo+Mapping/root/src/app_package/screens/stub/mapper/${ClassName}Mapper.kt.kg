@@ -1,0 +1,13 @@
+package ${packageName}.screens.stub.mapper
+
+import io.taptm.network.mapper.Mapper
+import ${packageName}.screens.stub.models.${ClassName}Entity
+import ${packageName}.screens.stub.models.${ClassName}Response
+
+class ${ClassName}Mapper : Mapper<${ClassName}Response, ${ClassName}Entity> {
+
+    override fun toDomain(response: ${ClassName}Response): ${ClassName}Entity {
+        return ${ClassName}Entity("title")
+    }
+
+}

@@ -1,0 +1,25 @@
+package ${packageName}.screens.stub.repo
+
+import io.taptm.network.ApiService
+import io.taptm.network.models.RepoResult
+import io.taptm.network.utils.safeApiCall
+import ${packageName}.screens.stub.mapper.${ClassName}Mapper
+import ${packageName}.screens.stub.models.${ClassName}Entity
+
+internal interface ${ClassName}Repo {
+
+    suspend fun get${ClassName}(): RepoResult<${ClassName}Entity>
+
+}
+
+internal class ${ClassName}RepoImpl(
+    private val apiService: ApiService,
+    private val mapper: ${ClassName}Mapper
+): ${ClassName}Repo {
+
+    override suspend fun get${ClassName}(): RepoResult<${ClassName}Entity> {
+        return RepoResult.Success(${ClassName}Entity("title"))
+        // return safeApiCall(mapper) { apiService.get${ClassName}() }
+    }
+
+}

@@ -1,0 +1,18 @@
+package ${packageName}.screens.stub.presentation
+
+import io.taptm.common.arch.UiEffect
+import io.taptm.common.arch.UiEvent
+import io.taptm.common.arch.UiState
+import io.taptm.designsystem.component.scaffold.ScreenState
+import ${packageName}.screens.stub.models.${ClassName}Entity
+
+internal data class State(
+    val screenState: ScreenState,
+    val data: ${ClassName}Entity? = null
+) : UiState
+
+internal sealed class Event : UiEvent
+
+internal sealed class Effect : UiEffect {
+    sealed class Navigation : Effect()
+}

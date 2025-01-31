@@ -1,0 +1,5 @@
+package ${packageName}.screens.stub.models
+
+data class ${ClassName}Entity(
+    val title: String
+)

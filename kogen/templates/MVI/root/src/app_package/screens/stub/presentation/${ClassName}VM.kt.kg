@@ -1,0 +1,23 @@
+package ${packageName}.screens.stub.presentation
+
+import androidx.lifecycle.viewModelScope
+import io.taptm.common.arch.BaseMviViewModel
+import io.taptm.designsystem.component.scaffold.ScreenState
+import kotlinx.coroutines.launch
+
+internal class ${ClassName}VM() : BaseMviViewModel<Event, State, Effect>() {
+
+    init {
+        loadDate()
+    }
+
+    override fun createInitialState(): State = State(ScreenState.Loading)
+
+    override fun handleEvent(event: Event) {}
+
+    private fun loadDate() {
+        viewModelScope.launch {
+
+        }
+    }
+}
