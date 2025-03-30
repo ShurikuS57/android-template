@@ -3,8 +3,9 @@ package io.taptm.tops.screens.details.mapper
 import io.taptm.network.mapper.Mapper
 import io.taptm.network.models.responses.details.DetailsResponse
 import io.taptm.tops.screens.details.models.DetailsEntity
+import javax.inject.Inject
 
-class DetailsMapper : Mapper<DetailsResponse, DetailsEntity> {
+class DetailsMapper @Inject constructor() : Mapper<DetailsResponse, DetailsEntity> {
 
     override fun toDomain(response: DetailsResponse): DetailsEntity {
         return DetailsEntity(

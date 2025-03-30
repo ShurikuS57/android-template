@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.taptm.designsystem.component.images.AsyncImageFrame
 import io.taptm.designsystem.component.scaffold.ScaffoldComponent
@@ -25,11 +26,10 @@ import io.taptm.designsystem.theme.Body1
 import io.taptm.designsystem.theme.Headline4
 import io.taptm.network.utils.PreviewProvider
 import io.taptm.tops.screens.details.mapper.DetailsMapper
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
 internal fun DetailsScreen(
-    vm: DetailsVM = koinViewModel()
+    vm: DetailsVM = hiltViewModel()
 ) {
     val state by vm.uiState.collectAsStateWithLifecycle()
     ContentScreen(state)

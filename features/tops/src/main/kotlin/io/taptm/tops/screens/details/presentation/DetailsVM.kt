@@ -3,14 +3,17 @@ package io.taptm.tops.screens.details.presentation
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.taptm.common.arch.BaseMviViewModel
 import io.taptm.designsystem.component.scaffold.ScreenState
 import io.taptm.navigation.AppNavRoute
 import io.taptm.network.models.RepoResult
 import io.taptm.tops.screens.details.repo.DetailsRepo
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-internal class DetailsVM(
+@HiltViewModel
+internal class DetailsVM @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val repo: DetailsRepo
 ) : BaseMviViewModel<Event, State, Effect>() {

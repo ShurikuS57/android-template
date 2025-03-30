@@ -44,9 +44,7 @@ dependencies {
     // Coil
     implementation(libs.coil)
 
-    // Koin
-    implementation(platform(libs.koin.bom))
-    implementation(libs.bundles.koinBundle)
+
 
     // Network
     implementation(libs.ktor.client)

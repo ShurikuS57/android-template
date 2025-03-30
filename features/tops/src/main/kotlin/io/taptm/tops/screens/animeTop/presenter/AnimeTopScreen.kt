@@ -32,6 +32,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.taptm.designsystem.component.images.AsyncImageFrame
 import io.taptm.designsystem.component.scaffold.ScaffoldComponent
@@ -42,12 +43,11 @@ import io.taptm.themeSwicher.ThemeSwitcher
 import io.taptm.tops.screens.animeTop.mapper.AnimeTopMapper
 import io.taptm.tops.screens.animeTop.presenter.AnimeTopContract.Effect
 import io.taptm.tops.screens.animeTop.presenter.AnimeTopContract.State
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
 internal fun AnimeTopScreen(
     innerPadding: PaddingValues,
-    vm: AnimeTopVM = koinViewModel(),
+    vm: AnimeTopVM = hiltViewModel(),
     onNavigate: (Effect.Navigation) -> Unit
 ) {
     val state by vm.uiState.collectAsStateWithLifecycle()

@@ -1,25 +1,33 @@
 package io.taptm.network.di
 
 import android.content.Context
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
 import io.taptm.common.Flavor
 import io.taptm.network.ApiService
 import io.taptm.network.httpClientAndroid
-import org.koin.android.ext.koin.androidContext
-import org.koin.dsl.module
-import org.koin.java.KoinJavaComponent.getKoin
+import javax.inject.Named
+import javax.inject.Singleton
 
-val networkModule = module {
-    single { provideApiService(get()) }
-    single { provideHttpClient(androidContext()) }
-}
+@Module
+@InstallIn(SingletonComponent::class)
+class NetworkModule {
 
-fun provideHttpClient(context: Context): HttpClient {
-    val url = getKoin().getProperty<String>("URL").orEmpty()
-    val flavor = Flavor.parse(getKoin().getProperty("FLAVOR"))
-    return httpClientAndroid(context = context, serverUrl = url, flavor = flavor)
-}
+    @Provides
+    fun providersApiService(httpClient: HttpClient) = ApiService(httpClient)
 
-fun provideApiService(httpClient: HttpClient): ApiService {
-    return ApiService(httpClient)
+    @Provides
+    @Singleton
+    fun httpClientProvider(
+        @ApplicationContext context: Context,
+        @Named("URL") url: String,
+        @Named("FLAVOR") flavorStr: String
+    ): HttpClient {
+        val flavor = Flavor.parse(flavorStr)
+        return httpClientAndroid(context, serverUrl = url, flavor = flavor)
+    }
 }

@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.serialization)
     alias(libs.plugins.parcelize)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -29,13 +31,15 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)
 
-    // Koin
-    implementation(platform(libs.koin.bom))
-    implementation(libs.bundles.koinBundle)
+
 
     // Network
     implementation(platform(libs.ktor.bom))
     implementation(libs.bundles.ktorBundle)
+
+    // Dagger/hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     // Pluto
     debugImplementation(libs.bundles.plutoDebugBundle)

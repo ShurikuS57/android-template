@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.serialization)
     alias(libs.plugins.parcelize)
     alias(libs.plugins.compose.compiler)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -44,9 +46,9 @@ dependencies {
     // Coil
     implementation(libs.coil)
 
-    // Koin
-    implementation(platform(libs.koin.bom))
-    implementation(libs.bundles.koinBundle)
+    // Dagger/hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     // Network
     implementation(libs.ktor.client)

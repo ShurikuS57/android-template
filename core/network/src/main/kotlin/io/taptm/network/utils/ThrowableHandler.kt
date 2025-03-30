@@ -7,10 +7,9 @@ import io.taptm.common.models.ErrorEntity
 import io.taptm.common.models.ErrorType
 import io.taptm.network.models.RepoResult
 import io.taptm.network.models.ServerError
-import org.koin.core.component.KoinComponent
 import java.net.SocketTimeoutException
 
-object ThrowableHandler : KoinComponent {
+object ThrowableHandler {
 
     suspend fun catchError(response: HttpResponse): ErrorEntity {
         val message =

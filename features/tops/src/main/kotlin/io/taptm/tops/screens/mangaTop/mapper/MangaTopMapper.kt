@@ -3,8 +3,9 @@ package io.taptm.tops.screens.mangaTop.mapper
 import io.taptm.network.mapper.Mapper
 import io.taptm.network.models.responses.topManga.MangaTopResponse
 import io.taptm.tops.screens.mangaTop.models.MangaTopEntity
+import javax.inject.Inject
 
-internal class MangaTopMapper : Mapper<MangaTopResponse, List<MangaTopEntity>> {
+internal class MangaTopMapper @Inject constructor() : Mapper<MangaTopResponse, List<MangaTopEntity>> {
 
     override fun toDomain(response: MangaTopResponse): List<MangaTopEntity> {
         return response.data.map { item ->

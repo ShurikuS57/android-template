@@ -1,12 +1,15 @@
 package io.taptm.themeSwicher
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.taptm.prefs.PrefKeys
 import io.taptm.prefs.repos.PrefsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import javax.inject.Inject
 
-class ThemeVM(
+@HiltViewModel
+class ThemeVM @Inject constructor(
     private val prefs: PrefsRepository
 ) : ViewModel() {
 

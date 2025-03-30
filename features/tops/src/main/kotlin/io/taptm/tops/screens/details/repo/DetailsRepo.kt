@@ -5,6 +5,7 @@ import io.taptm.network.models.RepoResult
 import io.taptm.network.utils.safeApiCall
 import io.taptm.tops.screens.details.mapper.DetailsMapper
 import io.taptm.tops.screens.details.models.DetailsEntity
+import javax.inject.Inject
 
 internal interface DetailsRepo {
 
@@ -14,7 +15,7 @@ internal interface DetailsRepo {
 
 }
 
-internal class DetailsRepoImpl(
+internal class DetailsRepoImpl @Inject constructor(
     private val apiService: ApiService,
     private val mapper: DetailsMapper
 ): DetailsRepo {

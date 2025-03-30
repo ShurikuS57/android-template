@@ -2,8 +2,9 @@ package io.taptm.network
 
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
+import javax.inject.Inject
 
-class ApiService(
+class ApiService @Inject constructor(
     private val client: HttpClient
 ) {
     suspend fun getTopAnime() = client.get("v4/top/anime")

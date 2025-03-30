@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.taptm.designsystem.component.scaffold.ScaffoldComponent
 import io.taptm.designsystem.component.scaffold.ScreenState
@@ -18,13 +19,12 @@ import io.taptm.designsystem.theme.AppTheme
 import io.taptm.network.utils.PreviewProvider
 import io.taptm.tops.screens.animeTop.presenter.ContentRowItem
 import io.taptm.tops.screens.mangaTop.mapper.MangaTopMapper
-import org.koin.androidx.compose.koinViewModel
 
 
 @Composable
 internal fun MangaTopScreen(
     innerPadding: PaddingValues,
-    vm: MangaTopVM = koinViewModel(),
+    vm: MangaTopVM = hiltViewModel(),
     onNavigate: (Effect.Navigation) -> Unit
 ) {
     val state by vm.uiState.collectAsStateWithLifecycle()

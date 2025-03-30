@@ -1,13 +1,16 @@
 package io.taptm.tops.screens.mangaTop.presenter
 
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.taptm.common.arch.BaseMviViewModel
 import io.taptm.designsystem.component.scaffold.ScreenState
 import io.taptm.network.models.RepoResult
 import io.taptm.tops.screens.mangaTop.repo.MangaTopRepo
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-internal class MangaTopVM(
+@HiltViewModel
+internal class MangaTopVM @Inject constructor(
     private val repo: MangaTopRepo
 ) : BaseMviViewModel<Event, State, Effect>() {
 

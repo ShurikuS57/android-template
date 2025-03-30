@@ -13,6 +13,8 @@ kotlinJvmTarget = "11"
 ksp = "2.1.0-1.0.29"
 easylauncherVersion = "6.4.0"
 detekt = "1.23.7"
+hilt = "2.56"
+hiltNavigation = "1.2.0"
 
 # AndroidX
 coreKtx = "1.15.0"
@@ -53,6 +55,9 @@ espressoCore = "3.6.1"
 # AndroidX
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigation" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -126,6 +131,7 @@ composeUiBundle = [
     "coil",
     "coil-svg",
     "coil-network",
+    "hilt-navigation",
 ]
 
 koinBundle = [
@@ -172,3 +178,4 @@ parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotli
 easylauncher = { id = "com.starter.easylauncher", version.ref = "easylauncherVersion" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

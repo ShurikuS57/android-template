@@ -1,16 +1,25 @@
 package io.taptm.prefs.di
 
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import io.taptm.prefs.repos.PrefsProvider
 import io.taptm.prefs.repos.PrefsProviderImpl
 import io.taptm.prefs.repos.PrefsRepository
 import io.taptm.prefs.repos.PrefsRepositoryImpl
-import org.koin.core.module.dsl.bind
-import org.koin.core.module.dsl.singleOf
-import org.koin.dsl.module
+import javax.inject.Singleton
 
-fun prefsModules() = module {
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class PrefsModule {
 
-    singleOf(::PrefsProviderImpl) { bind<PrefsProvider>() }
-    singleOf(::PrefsRepositoryImpl) { bind<PrefsRepository>() }
+    @Binds
+    @Singleton
+    internal abstract fun prefsProviderBind(impl: PrefsProviderImpl) : PrefsProvider
 
+
+    @Binds
+    @Singleton
+    internal abstract fun bindPrefsRepo(impl: PrefsRepositoryImpl) : PrefsRepository
 }

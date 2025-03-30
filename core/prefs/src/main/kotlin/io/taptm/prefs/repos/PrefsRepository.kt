@@ -1,6 +1,7 @@
 package io.taptm.prefs.repos
 
 import io.taptm.prefs.PrefKeys
+import javax.inject.Inject
 
 interface PrefsRepository {
     fun saveStr(key: PrefKeys, value: String)
@@ -20,7 +21,7 @@ interface PrefsRepository {
     fun clearValue(key: PrefKeys)
 }
 
-internal class PrefsRepositoryImpl(
+internal class PrefsRepositoryImpl @Inject constructor(
     prefsProvider: PrefsProvider,
 ) : PrefsRepository {
 

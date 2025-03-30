@@ -4,13 +4,15 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
 interface PrefsProvider {
     fun get(name: String): SharedPreferences
 }
 
-internal class PrefsProviderImpl(
-    private val context: Context
+internal class PrefsProviderImpl @Inject constructor(
+    @ApplicationContext private val context: Context
 ) : PrefsProvider {
 
     override fun get(name: String) =

@@ -8,8 +8,9 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.easylauncher)
-    alias(libs.plugins.ksp)
     alias(libs.plugins.detekt)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 val versionMajor = libs.versions.versionMajor.get().toInt()
@@ -47,10 +48,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
-        }
-
-        ksp {
-            arg("KOIN_CONFIG_CHECK", "true")
         }
     }
 
@@ -181,18 +178,22 @@ dependencies {
     // Coil
     implementation(libs.coil)
 
-    // Koin
-    implementation(platform(libs.koin.bom))
-    implementation(libs.bundles.koinBundle)
-
     // Pluto
     debugImplementation(libs.bundles.plutoDebugBundle)
     releaseImplementation(libs.bundles.plutoProdBundle)
+
+    // Dagger/hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 val detektProjectBaseline by tasks.registering(DetektCreateBaselineTask::class) {
