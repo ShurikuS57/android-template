@@ -3,7 +3,9 @@ package io.taptm.tops.screens.details.mapper
 import io.taptm.network.mapper.Mapper
 import io.taptm.network.models.responses.details.DetailsResponse
 import io.taptm.tops.screens.details.models.DetailsEntity
+import org.koin.core.annotation.Single
 
+@Single
 class DetailsMapper : Mapper<DetailsResponse, DetailsEntity> {
 
     override fun toDomain(response: DetailsResponse): DetailsEntity {

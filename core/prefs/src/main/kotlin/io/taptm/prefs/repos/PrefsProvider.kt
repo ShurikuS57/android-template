@@ -4,11 +4,13 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import org.koin.core.annotation.Single
 
 interface PrefsProvider {
     fun get(name: String): SharedPreferences
 }
 
+@Single
 internal class PrefsProviderImpl(
     private val context: Context
 ) : PrefsProvider {

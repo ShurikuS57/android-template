@@ -5,6 +5,7 @@ import io.taptm.network.models.RepoResult
 import io.taptm.network.utils.safeApiCall
 import io.taptm.tops.screens.details.mapper.DetailsMapper
 import io.taptm.tops.screens.details.models.DetailsEntity
+import org.koin.core.annotation.Single
 
 internal interface DetailsRepo {
 
@@ -14,6 +15,7 @@ internal interface DetailsRepo {
 
 }
 
+@Single
 internal class DetailsRepoImpl(
     private val apiService: ApiService,
     private val mapper: DetailsMapper

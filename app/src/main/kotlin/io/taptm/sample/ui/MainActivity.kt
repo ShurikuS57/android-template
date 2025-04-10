@@ -18,7 +18,6 @@ import io.taptm.sample.navigation.AppNavigation
 import io.taptm.themeSwicher.ThemeSwitcher
 import io.taptm.themeSwicher.ThemeVM
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.compose.KoinContext
 import org.koin.compose.getKoin
 
 class MainActivity : ComponentActivity(), ThemeSwitcher {
@@ -34,10 +33,8 @@ class MainActivity : ComponentActivity(), ThemeSwitcher {
             RequestPermissionForPluto()
             val darkTheme = themeVM.darkTheme.collectAsStateWithLifecycle()
             AppTheme(darkTheme.value) {
-                KoinContext {
-                    val navController = rememberNavController()
-                    AppNavigation(navController)
-                }
+                val navController = rememberNavController()
+                AppNavigation(navController)
             }
         }
     }

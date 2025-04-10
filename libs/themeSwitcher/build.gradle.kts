@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.app.android.library)
-    alias(libs.plugins.parcelize)
     alias(libs.plugins.app.android.koin)
 }
 

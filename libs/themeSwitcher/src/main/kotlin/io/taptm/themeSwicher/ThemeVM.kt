@@ -5,7 +5,9 @@ import io.taptm.prefs.PrefKeys
 import io.taptm.prefs.repos.PrefsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import org.koin.android.annotation.KoinViewModel
 
+@KoinViewModel
 class ThemeVM(
     private val prefs: PrefsRepository
 ) : ViewModel() {

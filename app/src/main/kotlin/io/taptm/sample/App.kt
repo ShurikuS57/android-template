@@ -10,15 +10,13 @@ import com.pluto.Pluto
 import com.pluto.plugins.logger.PlutoLoggerPlugin
 import com.pluto.plugins.network.PlutoNetworkPlugin
 import io.taptm.common.Flavor
-import io.taptm.network.di.networkModule
-import io.taptm.prefs.di.prefsModules
-import io.taptm.themeSwicher.di.themeSwitcherModule
-import io.taptm.tops.di.topsModule
+import io.taptm.sample.di.AppModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androix.startup.KoinStartup
 import org.koin.core.annotation.KoinExperimentalAPI
 import org.koin.dsl.koinConfiguration
+import org.koin.ksp.generated.module
 
 @OptIn(KoinExperimentalAPI::class)
 class App : Application(), KoinStartup, SingletonImageLoader.Factory {
@@ -39,12 +37,7 @@ class App : Application(), KoinStartup, SingletonImageLoader.Factory {
                 "URL" to BuildConfig.URL,
             )
         )
-        modules(
-            networkModule,
-            prefsModules(),
-            topsModule(),
-            themeSwitcherModule()
-        )
+        modules(AppModule().module)
     }
 
     private fun initPluto() {

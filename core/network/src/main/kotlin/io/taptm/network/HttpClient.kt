@@ -24,11 +24,18 @@ import io.ktor.serialization.kotlinx.json.json
 import io.taptm.common.Flavor
 import io.taptm.mock.MockUtils.withMock
 import kotlinx.serialization.json.Json
+import org.koin.core.annotation.Property
+import org.koin.core.annotation.Single
 
 private const val NETWORK_REQUEST_TIME_OUT = 30_000L
 private const val NETWORK_CONNECT_TIME_OUT = 15_000L
 
-internal fun httpClientAndroid(context: Context, serverUrl: String, flavor: Flavor) = HttpClient(Android) {
+@Single
+internal fun httpClientAndroid(
+    context: Context,
+    @Property("URL") serverUrl: String,
+    @Property("FLAVOR") flavor: String
+) = HttpClient(Android) {
     install(ContentNegotiation) {
         json(
             Json {
@@ -75,7 +82,7 @@ internal fun httpClientAndroid(context: Context, serverUrl: String, flavor: Flav
     }
 
 }.apply {
-    if (flavor == Flavor.DEV) {
+    if (Flavor.parse(flavor) == Flavor.DEV) {
         plugin(HttpSend).intercept { request ->
             withMock(
                 request,

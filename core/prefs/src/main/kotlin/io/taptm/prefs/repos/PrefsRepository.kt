@@ -1,6 +1,8 @@
 package io.taptm.prefs.repos
 
+import androidx.core.content.edit
 import io.taptm.prefs.PrefKeys
+import org.koin.core.annotation.Single
 
 interface PrefsRepository {
     fun saveStr(key: PrefKeys, value: String)
@@ -20,6 +22,7 @@ interface PrefsRepository {
     fun clearValue(key: PrefKeys)
 }
 
+@Single
 internal class PrefsRepositoryImpl(
     prefsProvider: PrefsProvider,
 ) : PrefsRepository {
@@ -27,7 +30,7 @@ internal class PrefsRepositoryImpl(
     private val sp = prefsProvider.get(PREFS_NAME)
 
     override fun saveStr(key: PrefKeys, value: String) {
-        sp.edit().putString(key.value, value).apply()
+        sp.edit { putString(key.value, value) }
     }
 
     override fun loadStr(key: PrefKeys, defValue: String): String {
@@ -35,7 +38,7 @@ internal class PrefsRepositoryImpl(
     }
 
     override fun saveBool(key: PrefKeys, value: Boolean) {
-        sp.edit().putBoolean(key.value, value).apply()
+        sp.edit { putBoolean(key.value, value) }
     }
 
     override fun loadBool(key: PrefKeys, defValue: Boolean): Boolean {
@@ -43,7 +46,7 @@ internal class PrefsRepositoryImpl(
     }
 
     override fun saveInt(key: PrefKeys, value: Int) {
-        sp.edit().putInt(key.value, value).apply()
+        sp.edit { putInt(key.value, value) }
     }
 
     override fun loadInt(key: PrefKeys, defValue: Int): Int {
@@ -51,7 +54,7 @@ internal class PrefsRepositoryImpl(
     }
 
     override fun saveLong(key: PrefKeys, value: Long) {
-        sp.edit().putLong(key.value, value).apply()
+        sp.edit { putLong(key.value, value) }
     }
 
     override fun loadLong(key: PrefKeys, defValue: Long): Long {
@@ -59,11 +62,11 @@ internal class PrefsRepositoryImpl(
     }
 
     override fun clearAll() {
-        sp.edit().clear().apply()
+        sp.edit { clear() }
     }
 
     override fun clearValue(key: PrefKeys) {
-        sp.edit().remove(key.value).apply()
+        sp.edit { remove(key.value) }
     }
 
     companion object {

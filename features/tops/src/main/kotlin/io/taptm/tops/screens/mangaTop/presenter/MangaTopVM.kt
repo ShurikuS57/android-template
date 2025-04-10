@@ -6,7 +6,9 @@ import io.taptm.designsystem.component.scaffold.ScreenState
 import io.taptm.network.models.RepoResult
 import io.taptm.tops.screens.mangaTop.repo.MangaTopRepo
 import kotlinx.coroutines.launch
+import org.koin.android.annotation.KoinViewModel
 
+@KoinViewModel
 internal class MangaTopVM(
     private val repo: MangaTopRepo
 ) : BaseMviViewModel<Event, State, Effect>() {

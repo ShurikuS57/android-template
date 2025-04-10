@@ -10,7 +10,9 @@ import io.taptm.tops.screens.animeTop.presenter.AnimeTopContract.Event
 import io.taptm.tops.screens.animeTop.presenter.AnimeTopContract.State
 import io.taptm.tops.screens.animeTop.repo.AnimeTopRepo
 import kotlinx.coroutines.launch
+import org.koin.android.annotation.KoinViewModel
 
+@KoinViewModel
 internal class AnimeTopVM(
     private val repo: AnimeTopRepo,
     private val prefs: PrefsRepository,

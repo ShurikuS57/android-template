@@ -3,7 +3,9 @@ package io.taptm.tops.screens.animeTop.mapper
 import io.taptm.network.mapper.Mapper
 import io.taptm.network.models.responses.topAnime.AnimeTopResponse
 import io.taptm.tops.screens.animeTop.models.AnimeTopEntity
+import org.koin.core.annotation.Single
 
+@Single
 internal class AnimeTopMapper : Mapper<AnimeTopResponse, List<AnimeTopEntity>> {
 
     override fun toDomain(response: AnimeTopResponse): List<AnimeTopEntity> {

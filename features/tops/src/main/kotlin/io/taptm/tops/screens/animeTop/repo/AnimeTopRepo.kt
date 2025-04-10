@@ -5,11 +5,13 @@ import io.taptm.network.models.RepoResult
 import io.taptm.network.utils.safeApiCall
 import io.taptm.tops.screens.animeTop.mapper.AnimeTopMapper
 import io.taptm.tops.screens.animeTop.models.AnimeTopEntity
+import org.koin.core.annotation.Single
 
 internal interface AnimeTopRepo {
     suspend fun getAnimeTop(): RepoResult<List<AnimeTopEntity>>
 }
 
+@Single
 internal class AnimeTopRepoImpl(
     private val apiService: ApiService,
     private val mapper: AnimeTopMapper

@@ -9,7 +9,9 @@ import io.taptm.navigation.AppNavRoute
 import io.taptm.network.models.RepoResult
 import io.taptm.tops.screens.details.repo.DetailsRepo
 import kotlinx.coroutines.launch
+import org.koin.android.annotation.KoinViewModel
 
+@KoinViewModel
 internal class DetailsVM(
     savedStateHandle: SavedStateHandle,
     private val repo: DetailsRepo
