@@ -4,11 +4,11 @@ import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.app.android.application)
+    alias(libs.plugins.app.android.application.compose)
+    alias(libs.plugins.app.android.koin)
+    alias(libs.plugins.serialization)
     alias(libs.plugins.easylauncher)
-    alias(libs.plugins.ksp)
     alias(libs.plugins.detekt)
 }
 
@@ -49,9 +49,6 @@ android {
             useSupportLibrary = true
         }
 
-        ksp {
-            arg("KOIN_CONFIG_CHECK", "true")
-        }
     }
 
     signingConfigs {
@@ -118,11 +115,6 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
     buildFeatures {
         compose = true
         buildConfig = true
@@ -180,10 +172,6 @@ dependencies {
 
     // Coil
     implementation(libs.coil)
-
-    // Koin
-    implementation(platform(libs.koin.bom))
-    implementation(libs.bundles.koinBundle)
 
     // Pluto
     debugImplementation(libs.bundles.plutoDebugBundle)

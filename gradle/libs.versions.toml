@@ -7,12 +7,14 @@ versionPatch = "0"
 minSdk = "24"
 targetSdk = "35"
 compileSdk = "35"
-agp = "8.8.1"
+agp = "8.9.0"
 kotlin = "2.1.10"
 kotlinJvmTarget = "11"
-ksp = "2.1.0-1.0.29"
+ksp = "2.1.10-1.0.31"
 easylauncherVersion = "6.4.0"
 detekt = "1.23.7"
+androidGradlePlugin = "8.9.1"
+androidTools = "31.9.1"
 
 # AndroidX
 coreKtx = "1.15.0"
@@ -32,7 +34,8 @@ coroutines-core = "1.10.1"
 coroutines-android = "1.9.0"
 
 # koin
-koin-bom = "4.1.0-Beta5"
+koin-bom = "4.1.0-Beta7"
+koin-annotations = "2.0.0"
 
 # Network
 ktor-bom = "3.0.3"
@@ -55,6 +58,7 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycleRuntimeKtx" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
@@ -81,6 +85,10 @@ koin-core = { module = "io.insert-koin:koin-core" }
 koin-android = { module = "io.insert-koin:koin-android" }
 koin-compose = { module = "io.insert-koin:koin-androidx-compose"}
 koin-startup = { module = "io.insert-koin:koin-androidx-startup" }
+
+# Koin annotations
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations" }
+koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-annotations" }
 
 # Network
 ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktor-bom" }
@@ -113,6 +121,13 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "j
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
 [bundles]
 composeUiBundle = [
@@ -172,3 +187,11 @@ parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotli
 easylauncher = { id = "com.starter.easylauncher", version.ref = "easylauncherVersion" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+
+# Plugins defined by this project
+app-android-application = { id = "app.android.application" }
+app-android-application-compose = { id = "app.android.application.compose" }
+app-android-feature = { id = "app.android.feature" }
+app-android-library = { id = "app.android.library" }
+app-android-library-compose = { id = "app.android.library.compose" }
+app-android-koin = { id = "app.android.koin" }
