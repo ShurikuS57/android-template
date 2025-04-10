@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -31,6 +32,9 @@ import org.koin.androidx.compose.koinViewModel
 internal fun DetailsScreen(
     vm: DetailsVM = koinViewModel()
 ) {
+    LaunchedEffect(Unit) {
+        vm.setEvent(Event.OnLoadData)
+    }
     val state by vm.uiState.collectAsStateWithLifecycle()
     ContentScreen(state)
 }

@@ -23,6 +23,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -41,6 +42,7 @@ import io.taptm.network.utils.PreviewProvider
 import io.taptm.themeSwicher.ThemeSwitcher
 import io.taptm.tops.screens.animeTop.mapper.AnimeTopMapper
 import io.taptm.tops.screens.animeTop.presenter.AnimeTopContract.Effect
+import io.taptm.tops.screens.animeTop.presenter.AnimeTopContract.Event
 import io.taptm.tops.screens.animeTop.presenter.AnimeTopContract.State
 import org.koin.androidx.compose.koinViewModel
 
@@ -50,6 +52,9 @@ internal fun AnimeTopScreen(
     vm: AnimeTopVM = koinViewModel(),
     onNavigate: (Effect.Navigation) -> Unit
 ) {
+    LaunchedEffect(Unit) {
+        vm.setEvent(Event.OnLoadData)
+    }
     val state by vm.uiState.collectAsStateWithLifecycle()
     ContentScreen(innerPadding, state, onNavigate)
 }

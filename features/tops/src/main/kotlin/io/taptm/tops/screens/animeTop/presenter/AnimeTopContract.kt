@@ -14,6 +14,7 @@ internal class AnimeTopContract {
     ) : UiState
 
     internal sealed class Event : UiEvent {
+        data object OnLoadData : Event()
         data object OnSwitchTheme : Event()
     }
 

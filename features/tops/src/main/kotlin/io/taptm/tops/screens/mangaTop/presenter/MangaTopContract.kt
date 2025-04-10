@@ -12,7 +12,9 @@ internal data class State(
     val data: List<MangaTopEntity> = listOf()
 ) : UiState
 
-internal sealed class Event : UiEvent
+internal sealed class Event : UiEvent {
+    data object OnLoadData : Event()
+}
 
 internal sealed class Effect : UiEffect {
     sealed class Navigation : Effect() {

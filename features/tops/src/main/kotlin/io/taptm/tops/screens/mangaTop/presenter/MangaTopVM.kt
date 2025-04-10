@@ -13,13 +13,13 @@ internal class MangaTopVM(
     private val repo: MangaTopRepo
 ) : BaseMviViewModel<Event, State, Effect>() {
 
-    init {
-        loadData()
+     override fun createInitialState(): State = State(screenState = ScreenState.Loading)
+
+    override fun handleEvent(event: Event) {
+        when(event) {
+            Event.OnLoadData -> loadData()
+        }
     }
-
-    override fun createInitialState(): State = State(screenState = ScreenState.Loading)
-
-    override fun handleEvent(event: Event) {}
 
     private fun loadData() {
         viewModelScope.launch {

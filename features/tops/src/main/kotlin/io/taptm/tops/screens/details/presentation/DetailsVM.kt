@@ -19,13 +19,13 @@ internal class DetailsVM(
 
     private val args = savedStateHandle.toRoute<AppNavRoute.Details>()
 
-    init {
-        loadDate()
-    }
-
     override fun createInitialState(): State = State(ScreenState.Loading)
 
-    override fun handleEvent(event: Event) {}
+    override fun handleEvent(event: Event) {
+        when(event) {
+            Event.OnLoadData -> loadDate()
+        }
+    }
 
     private fun loadDate() {
         viewModelScope.launch {
