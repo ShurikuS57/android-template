@@ -16,9 +16,6 @@ dependencies {
     implementation(projects.libs.themeSwitcher)
     implementation(projects.core.logger)
 
-    // Coil
-    implementation(libs.coil)
-
     // Network
     implementation(libs.ktor.client)
 }

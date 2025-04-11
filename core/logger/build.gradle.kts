@@ -11,7 +11,6 @@ android {
 dependencies {
     implementation(projects.core.common)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.kotlinx.serialization.json)
 
     // Pluto
     debugImplementation(libs.bundles.plutoDebugBundle)

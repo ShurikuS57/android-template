@@ -11,6 +11,6 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
 
-    implementation(libs.kotlinx.serialization.json)
+    api(libs.kotlinx.serialization.json)
     implementation(libs.lifecycle.viewmodel.compose)
 }

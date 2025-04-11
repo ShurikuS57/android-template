@@ -12,7 +12,6 @@ dependencies {
     implementation(projects.core.common)
     implementation(projects.libs.mock)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.kotlinx.serialization.json)
 
     // Network
     implementation(platform(libs.ktor.bom))

@@ -7,10 +7,10 @@ android {
 }
 
 dependencies {
-    implementation(projects.core.common)
+    api(projects.core.common)
     implementation(libs.androidx.core.ktx)
 
     // Coil
-    implementation(libs.coil)
+    api(libs.coil)
 
 }

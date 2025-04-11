@@ -32,23 +32,3 @@ class LibraryComposePlugin : Plugin<Project> {
     }
 
 }
-
-//plugins {
-//    alias(libs.plugins.app.android.library)
-//    alias(libs.plugins.compose.compiler)
-//}
-//
-//android {
-//    namespace = "io.taptm.designsystem"
-//}
-//
-//dependencies {
-//    implementation(projects.core.common)
-//    implementation(libs.androidx.core.ktx)
-//
-//    // Compose
-//    implementation(platform(libs.androidx.compose.bom))
-//    implementation(libs.bundles.composeUiBundle)
-//    implementation(libs.androidx.activity.compose)
-//    debugImplementation(libs.androidx.ui.tooling)
-//}
