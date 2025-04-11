@@ -1,7 +1,6 @@
 package io.taptm.network
 
 import android.content.Context
-import android.util.Log
 import com.pluto.plugins.network.ktor.PlutoKtorInterceptor
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
@@ -26,6 +25,7 @@ import io.taptm.mock.MockUtils.withMock
 import kotlinx.serialization.json.Json
 import org.koin.core.annotation.Property
 import org.koin.core.annotation.Single
+import timber.log.Timber
 
 private const val NETWORK_REQUEST_TIME_OUT = 30_000L
 private const val NETWORK_CONNECT_TIME_OUT = 15_000L
@@ -57,7 +57,7 @@ internal fun httpClientAndroid(
     install(Logging) {
         logger = object : Logger {
             override fun log(message: String) {
-                Log.v("Logger Ktor =>", message)
+                Timber.tag("Logger Ktor =>").v(message)
             }
         }
         level = LogLevel.ALL
@@ -65,7 +65,7 @@ internal fun httpClientAndroid(
 
     install(ResponseObserver) {
         onResponse { response ->
-            Log.d("HTTP status:", "${response.status.value}")
+            Timber.tag("HTTP status:").d("${response.status.value}")
         }
     }
 
