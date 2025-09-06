@@ -27,7 +27,7 @@ internal class PrefsRepositoryImpl(
     prefsProvider: PrefsProvider,
 ) : PrefsRepository {
 
-    private val sp = prefsProvider.get(PREFS_NAME)
+    private val sp by lazy { prefsProvider.get(PREFS_NAME) }
 
     override fun saveStr(key: PrefKeys, value: String) {
         sp.edit { putString(key.value, value) }
