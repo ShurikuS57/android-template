@@ -1,5 +1,6 @@
 package io.taptm.network.utils
 
+import AppLogger
 import io.ktor.client.call.body
 import io.ktor.client.statement.HttpResponse
 import io.ktor.client.statement.request
@@ -14,7 +15,16 @@ object ThrowableHandler : KoinComponent {
 
     suspend fun catchError(response: HttpResponse): ErrorEntity {
         val message =
-            "Error executing service call: ${response.request.method.value} ${response.request.url} (${response.status})"
+            buildString {
+                append("Error executing service call: ")
+                append(response.request.method.value)
+                append(" ")
+                append(response.request.url)
+                append(" (")
+                append(response.status)
+                append(")")
+            }
+        AppLogger.d("NetworkError", message)
         return when (response.status.value) {
             500 -> catchServerError(response)
             else -> ErrorEntity(
@@ -27,6 +37,7 @@ object ThrowableHandler : KoinComponent {
     }
 
     fun network(throwable: Throwable): RepoResult.Error {
+        AppLogger.e(throwable, "Network error")
         return when (throwable) {
             is SocketTimeoutException -> RepoResult.Error(
                 ErrorEntity(

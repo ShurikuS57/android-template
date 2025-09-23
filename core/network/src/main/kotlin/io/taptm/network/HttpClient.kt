@@ -2,6 +2,7 @@ package io.taptm.network
 
 import android.content.Context
 import com.pluto.plugins.network.ktor.PlutoKtorInterceptor
+import io.github.openflocon.flocon.ktor.FloconKtorPlugin
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.DefaultRequest
@@ -36,6 +37,7 @@ internal fun httpClientAndroid(
     @Property("URL") serverUrl: String,
     @Property("FLAVOR") flavor: String
 ) = HttpClient(Android) {
+    install(FloconKtorPlugin)
     install(ContentNegotiation) {
         json(
             Json {

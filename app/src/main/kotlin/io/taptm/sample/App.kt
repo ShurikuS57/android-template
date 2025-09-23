@@ -9,6 +9,7 @@ import coil3.request.crossfade
 import com.pluto.Pluto
 import com.pluto.plugins.logger.PlutoLoggerPlugin
 import com.pluto.plugins.network.PlutoNetworkPlugin
+import io.github.openflocon.flocon.Flocon
 import io.taptm.common.Flavor
 import io.taptm.sample.di.AppModule
 import org.koin.android.ext.koin.androidContext
@@ -25,6 +26,7 @@ class App : Application(), KoinStartup, SingletonImageLoader.Factory {
         super.onCreate()
         val flavor = Flavor.parse(BuildConfig.FLAVOR)
         initPluto()
+        initFlocon()
         initLogger(flavor)
     }
 
@@ -50,6 +52,10 @@ class App : Application(), KoinStartup, SingletonImageLoader.Factory {
 
     private fun initLogger(flavor: Flavor) {
         AppLogger.init(flavor)
+    }
+
+    private fun initFlocon() {
+        Flocon.initialize(this)
     }
 
     override fun newImageLoader(context: PlatformContext): ImageLoader {

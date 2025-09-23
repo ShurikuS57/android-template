@@ -10,6 +10,7 @@ android {
 
 dependencies {
     implementation(projects.core.common)
+    implementation(projects.core.logger)
     implementation(projects.libs.mock)
     implementation(libs.androidx.core.ktx)
 
@@ -20,4 +21,7 @@ dependencies {
     // Pluto
     debugImplementation(libs.bundles.plutoDebugBundle)
     releaseImplementation(libs.bundles.plutoProdBundle)
+
+    // Flocon
+    debugImplementation(libs.flocon.ktor)
 }

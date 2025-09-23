@@ -15,4 +15,8 @@ dependencies {
     // Pluto
     debugImplementation(libs.bundles.plutoDebugBundle)
     releaseImplementation(libs.bundles.plutoProdBundle)
+
+    // Flocon
+    debugImplementation(libs.flocon.debug)
+    releaseImplementation(libs.flocon.prod)
 }

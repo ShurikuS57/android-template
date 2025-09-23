@@ -1,5 +1,6 @@
 
 import io.taptm.common.Flavor
+import io.taptm.logger.FloconLogger
 import io.taptm.logger.PlutoLogger
 
 internal interface AppLoggerInterface {
@@ -19,6 +20,7 @@ object AppLogger: AppLoggerInterface {
     fun init(flavor: Flavor) {
         if (flavor == Flavor.DEV) {
             logList.add(PlutoLogger())
+            logList.add(FloconLogger())
         }
     }
 
