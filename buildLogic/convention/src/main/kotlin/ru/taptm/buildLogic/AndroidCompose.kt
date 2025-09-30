@@ -22,6 +22,7 @@ internal fun Project.configureAndroidCompose(
             implementation(library("androidx-material3"))
             implementation(library("androidx-ui-tooling-preview"))
             implementation(library("androidx-ui-tooling"))
+            implementation(library("androidx-icons"))
         }
     }
 

@@ -7,8 +7,8 @@ versionPatch = "0"
 minSdk = "24"
 targetSdk = "36"
 compileSdk = "36"
-agp = "8.9.3"
-kotlin = "2.1.10"
+agp = "8.13.0"
+kotlin = "2.1.21"
 kotlinJvmTarget = "11"
 ksp = "2.1.21-2.0.2"
 easylauncherVersion = "6.4.0"
@@ -20,14 +20,15 @@ androidTools = "31.13.0"
 coreKtx = "1.17.0"
 appcompat = "1.7.1"
 material = "1.13.0"
-lifecycleRuntimeKtx = "2.9.3"
-activityCompose = "1.10.1"
-composeBom = "2025.08.01"
-composeNavigation = "2.9.3"
+lifecycleRuntimeKtx = "2.9.4"
+activityCompose = "1.11.0"
+composeBom = "2025.09.01"
+composeNavigation = "2.9.5"
 splashScreen = "1.2.0-rc01"
+materialIcons = "1.7.8"
 
 # UI
-coil = "3.0.4"
+coil = "3.3.0"
 
 # coroutines
 coroutines-core = "1.10.1"
@@ -39,7 +40,7 @@ koin-annotations = "2.1.0"
 
 # Network
 ktor-bom = "3.2.3"
-kotlinxSerializationJson = "1.8.0"
+kotlinxSerializationJson = "1.9.0"
 
 # Security
 safebox = "1.2.0"
@@ -48,7 +49,7 @@ safebox = "1.2.0"
 pluto = "2.2.2"
 
 # Flocon
-flocon = "1.1.4"
+flocon = "1.1.5"
 
 # Test
 junit = "4.13.2"
@@ -64,6 +65,7 @@ androidx-activity-compose = { group = "androidx.activity", name = "activity-comp
 androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycleRuntimeKtx" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIcons" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
@@ -144,6 +146,7 @@ composeUiBundle = [
     "androidx-ui",
     "androidx-ui-graphics",
     "androidx-ui-tooling-preview",
+    "androidx-icons",
     "androidx-material3",
     "compose-navigation",
     "coil",
