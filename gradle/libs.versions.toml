@@ -22,9 +22,9 @@ appcompat = "1.7.1"
 material = "1.13.0"
 lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
-composeBom = "2025.09.01"
-composeNavigation = "2.9.5"
-splashScreen = "1.2.0-rc01"
+composeBom = "2026.01.01"
+composeNavigation = "2.9.7"
+splashScreen = "1.2.0"
 materialIcons = "1.7.8"
 
 # UI
@@ -49,7 +49,7 @@ safebox = "1.2.0"
 pluto = "2.2.2"
 
 # Flocon
-flocon = "1.1.5"
+flocon = "1.7.5"
 
 # Test
 junit = "4.13.2"
