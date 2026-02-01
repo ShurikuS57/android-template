@@ -47,7 +47,8 @@ fun AsyncImageBox(
 fun AsyncImageFrame(
     modifier: Modifier = Modifier,
     url: String,
-    cornerSize: CornerSize = CornerSize(0.dp)
+    cornerSize: CornerSize = CornerSize(0.dp),
+    contentScale: ContentScale = ContentScale.Fit,
 ) {
     if (inComposePreview) {
         Box(
@@ -61,7 +62,7 @@ fun AsyncImageFrame(
             modifier = modifier
                 .clip(RoundedCornerShape(cornerSize)),
             contentDescription = "",
-            contentScale = ContentScale.Crop,
+            contentScale = contentScale,
             placeholder = ColorPainter(color = AppTheme.systemColor.primary),
         )
     }

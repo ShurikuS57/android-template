@@ -9,6 +9,7 @@ import io.taptm.navigation.TabNavRoute
 import io.taptm.tops.screens.animeTop.presenter.AnimeTopContract.Effect
 import io.taptm.tops.screens.animeTop.presenter.AnimeTopScreen
 import io.taptm.tops.screens.details.presentation.DetailsScreen
+import io.taptm.tops.screens.details.presentation.Effect.Navigation.OnBack
 import io.taptm.tops.screens.mangaTop.presenter.Effect.Navigation
 import io.taptm.tops.screens.mangaTop.presenter.MangaTopScreen
 
@@ -35,6 +36,12 @@ fun NavGraphBuilder.topsNavigation(appNavController: NavController, innerPadding
     }
 
     composable<AppNavRoute.Details> {
-        DetailsScreen()
+        DetailsScreen(onNavigation = { navigation ->
+            when (navigation) {
+                is OnBack -> {
+                    appNavController.popBackStack()
+                }
+            }
+        })
     }
 }

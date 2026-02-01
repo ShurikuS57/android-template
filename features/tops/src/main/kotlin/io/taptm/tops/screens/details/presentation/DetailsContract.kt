@@ -16,5 +16,7 @@ internal sealed class Event : UiEvent {
 }
 
 internal sealed class Effect : UiEffect {
-    sealed class Navigation : Effect()
+    sealed class Navigation : Effect() {
+        data object OnBack : Navigation()
+    }
 }
