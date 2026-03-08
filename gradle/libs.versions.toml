@@ -22,7 +22,7 @@ appcompat = "1.7.1"
 material = "1.13.0"
 lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
-composeBom = "2026.01.01"
+composeBom = "2026.02.01"
 composeNavigation = "2.9.7"
 splashScreen = "1.2.0"
 materialIcons = "1.7.8"
@@ -46,7 +46,7 @@ kotlinxSerializationJson = "1.9.0"
 safebox = "1.2.0"
 
 # Pluto
-pluto = "2.2.2"
+pluto = "3.0.1"
 
 # Flocon
 flocon = "1.7.5"
@@ -109,16 +109,14 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 safebox = { module = "io.github.harrytmthy:safebox", version.ref = "safebox" }
 
 # Pluto Debug
-pluto-debug = { module = "com.plutolib:pluto", version.ref = "pluto" }
-plutoNetwork-debug = { module = "com.plutolib.plugins:network", version.ref = "pluto" }
-plutoKtor-debug = { module = "com.plutolib.plugins:network-interceptor-ktor", version.ref = "pluto" }
-plutoLogger-debug = { module = "com.plutolib.plugins:logger", version.ref = "pluto" }
+pluto-debug = { module = "com.androidpluto:pluto", version.ref = "pluto" }
+plutoNetwork-debug = { module = "com.androidpluto.plugins:network", version.ref = "pluto" }
+plutoLogger-debug = { module = "com.androidpluto.plugins:logger", version.ref = "pluto" }
 
 # Pluto Prod
-pluto-prod = { module = "com.plutolib:pluto-no-op", version.ref = "pluto" }
-plutoNetwork-prod = { module = "com.plutolib.plugins:network-no-op", version.ref = "pluto" }
-plutoKtor-prod = { module = "com.plutolib.plugins:network-interceptor-ktor-no-op", version.ref = "pluto" }
-plutoLogger-prod = { module = "com.plutolib.plugins:logger-no-op", version.ref = "pluto" }
+pluto-prod = { module = "com.androidpluto:pluto-no-op", version.ref = "pluto" }
+plutoNetwork-prod = { module = "com.androidpluto.plugins:network-no-op", version.ref = "pluto" }
+plutoLogger-prod = { module = "com.androidpluto.plugins:logger-no-op", version.ref = "pluto" }
 
 # Flocon
 flocon-debug = { module = "io.github.openflocon:flocon", version.ref = "flocon" }
@@ -178,13 +176,11 @@ ktorBundle = [
 plutoDebugBundle = [
     "pluto-debug",
     "plutoNetwork-debug",
-    "plutoKtor-debug",
     "plutoLogger-debug",
 ]
 plutoProdBundle = [
     "pluto-prod",
     "plutoNetwork-prod",
-    "plutoKtor-prod",
     "plutoLogger-prod",
 ]
 

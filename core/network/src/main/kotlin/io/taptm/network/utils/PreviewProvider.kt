@@ -1,9 +1,10 @@
 package io.taptm.network.utils
 
 import android.content.Context
-import io.taptm.mock.loadAssetToString
 import io.taptm.network.mapper.Mapper
 import kotlinx.serialization.json.Json
+import java.io.FileNotFoundException
+import java.io.IOException
 
 object PreviewProvider {
 
@@ -21,3 +22,8 @@ object PreviewProvider {
     }
 }
 
+fun Context.loadAssetToString(filePath: String) = try {
+    this.assets.open(filePath).bufferedReader().use { it.readText() }
+} catch (e: IOException) {
+    throw FileNotFoundException(e.message)
+}

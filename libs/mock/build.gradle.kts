@@ -1,7 +1,5 @@
 plugins {
     alias(libs.plugins.app.android.library)
-    alias(libs.plugins.serialization)
-    alias(libs.plugins.parcelize)
 }
 
 android {
@@ -9,11 +7,4 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-
-    implementation(libs.kotlinx.serialization.json)
-
-    // Network
-    implementation(platform(libs.ktor.bom))
-    implementation(libs.bundles.ktorBundle)
 }
