@@ -10,7 +10,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.app.ActivityCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.compose.rememberNavController
 import io.taptm.common.Flavor
 import io.taptm.designsystem.theme.AppTheme
 import io.taptm.sample.R
@@ -33,8 +32,7 @@ class MainActivity : ComponentActivity(), ThemeSwitcher {
             RequestPermissionForPluto()
             val darkTheme = themeVM.darkTheme.collectAsStateWithLifecycle()
             AppTheme(darkTheme.value) {
-                val navController = rememberNavController()
-                AppNavigation(navController)
+                AppNavigation()
             }
         }
     }
@@ -62,6 +60,6 @@ class MainActivity : ComponentActivity(), ThemeSwitcher {
 @Composable
 private fun MainScreenPreview() {
     AppTheme {
-        AppNavigation(rememberNavController())
+        AppNavigation()
     }
 }

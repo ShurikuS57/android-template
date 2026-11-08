@@ -17,14 +17,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import io.taptm.designsystem.theme.AppTheme
 import io.taptm.designsystemapp.models.MenuItem
+import io.taptm.designsystemapp.navigation.DesignSystemRoute
 import io.taptm.designsystemapp.navigation.menuList
 
 @Composable
-fun MainMenuScreen(navController: NavHostController) {
+fun MainMenuScreen(onNavigate: (DesignSystemRoute) -> Unit) {
     Scaffold { innerPadding ->
         LazyVerticalGrid(
             modifier = Modifier.padding(16.dp),
@@ -32,16 +31,16 @@ fun MainMenuScreen(navController: NavHostController) {
             columns = GridCells.Adaptive(minSize = 100.dp)
         ) {
             items(menuList) { menu ->
-                MenuItem(menu, navController)
+                MenuItem(menu, onNavigate)
             }
         }
     }
 }
 
 @Composable
-private fun MenuItem(item: MenuItem, navController: NavHostController) {
+private fun MenuItem(item: MenuItem, onNavigate: (DesignSystemRoute) -> Unit) {
     Card(modifier = Modifier.clickable {
-        navController.navigate(item.route)
+        onNavigate(item.route)
     }) {
         Column(Modifier.padding(4.dp)) {
             Image(painterResource(item.image), contentDescription = "")
@@ -55,6 +54,6 @@ private fun MenuItem(item: MenuItem, navController: NavHostController) {
 @Composable
 private fun MainMenuPreview() {
     AppTheme {
-        MainMenuScreen(rememberNavController())
+        MainMenuScreen {}
     }
 }

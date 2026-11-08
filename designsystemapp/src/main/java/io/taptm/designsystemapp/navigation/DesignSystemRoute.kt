@@ -1,6 +1,7 @@
 package io.taptm.designsystemapp.navigation
 
 import androidx.annotation.Keep
+import androidx.navigation3.runtime.NavKey
 import io.taptm.designsystemapp.models.MenuItem
 import kotlinx.serialization.Serializable
 
@@ -15,7 +16,7 @@ val menuList = listOf(
 
 @Keep
 @Serializable
-sealed class DesignSystemRoute {
+sealed class DesignSystemRoute : NavKey {
 
     @Serializable
     data object MainMenu : DesignSystemRoute()

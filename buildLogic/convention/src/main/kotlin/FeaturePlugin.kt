@@ -21,7 +21,7 @@ class FeaturePlugin : Plugin<Project> {
 
                 implementation(library("androidx.lifecycle.runtimeCompose"))
                 implementation(library("lifecycle.viewmodel.compose"))
-                implementation(library("compose.navigation"))
+                implementation(library("navigation3.ui"))
                 implementation(library("kotlinx.serialization.json"))
             }
         }

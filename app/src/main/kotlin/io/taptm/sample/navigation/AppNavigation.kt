@@ -2,26 +2,30 @@ package io.taptm.sample.navigation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
+import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
+import androidx.navigation3.ui.NavDisplay
 import io.taptm.navigation.AppNavRoute
 import io.taptm.tops.navigation.topsNavigation
 
 @Composable
-fun AppNavigation(
-    navController: NavHostController
-) {
-    NavHost(
-        navController = navController,
-        startDestination = AppNavRoute.MainTab(0),
-    ) {
-        composable<AppNavRoute.MainTab> { backStackEntry ->
-            val tabIndex: AppNavRoute.MainTab = backStackEntry.toRoute()
-            TabScreen(appNavController = navController, tabIndex)
-        }
-
-        topsNavigation(navController, PaddingValues())
-    }
+fun AppNavigation() {
+    val backStack = rememberNavBackStack(AppNavRoute.MainTab(0))
+    val onBack = { if (backStack.size > 1) backStack.removeAt(backStack.lastIndex); Unit }
+    NavDisplay(
+        backStack = backStack,
+        onBack = onBack,
+        entryDecorators = listOf(
+            rememberSaveableStateHolderNavEntryDecorator(),
+            rememberViewModelStoreNavEntryDecorator(),
+        ),
+        entryProvider = entryProvider {
+            entry<AppNavRoute.MainTab> { route ->
+                TabScreen(arguments = route, openDetails = { backStack.add(it) })
+            }
+            topsNavigation(PaddingValues(), { backStack.add(it) }, onBack)
+        },
+    )
 }

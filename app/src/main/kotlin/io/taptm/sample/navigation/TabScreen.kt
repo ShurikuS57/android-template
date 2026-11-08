@@ -10,8 +10,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import io.taptm.designsystem.component.bottomTab.BottomNavBarComponent
 import io.taptm.designsystem.component.bottomTab.BottomNavigationItem
 import io.taptm.navigation.AppNavRoute
@@ -20,11 +18,10 @@ import io.taptm.navigation.tabPages
 
 @Composable
 fun TabScreen(
-    appNavController: NavHostController,
+    openDetails: (AppNavRoute.Details) -> Unit,
     arguments: AppNavRoute.MainTab,
 ) {
-    val tabNavController: NavHostController = rememberNavController()
-    val tabSelected = rememberSaveable { mutableIntStateOf(TabNavRoute.TopAnime.index) }
+    val tabSelected = rememberSaveable { mutableIntStateOf(arguments.tabIndex.takeIf { it in tabPages.indices } ?: 0) }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -36,24 +33,15 @@ fun TabScreen(
                 selected = tabSelected.intValue,
                 onNavSelected = { tabIndex ->
                     tabSelected.intValue = tabIndex
-                    tabNavController.navigate(tabPages[tabIndex]) {
-                        tabNavController.graph.startDestinationRoute?.let { route ->
-                            popUpTo(route) {
-                                saveState = true
-                            }
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
+
                 }
             )
         }
     ) { innerPadding ->
         TabNavigationHost(
-            tabController = tabNavController,
-            appController = appNavController,
-            startDestination = tabPages.getOrNull(arguments.tabIndex) ?: TabNavRoute.TopAnime,
-            innerPadding
+            selectedTab = tabPages[tabSelected.intValue],
+            openDetails = openDetails,
+            innerPadding = innerPadding
         )
     }
 }

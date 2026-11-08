@@ -1,5 +1,6 @@
 package io.taptm.navigation
 
+import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
 
@@ -9,7 +10,7 @@ val tabPages = listOf(
 )
 
 @Serializable
-sealed class TabNavRoute(val index: Int, val name: String) {
+sealed class TabNavRoute(val index: Int, val name: String) : NavKey {
 
     @Serializable
     data object TopAnime : TabNavRoute(index = 0, name = "Top anime")

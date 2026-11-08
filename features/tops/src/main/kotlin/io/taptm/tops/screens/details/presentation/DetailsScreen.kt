@@ -35,14 +35,17 @@ import io.taptm.designsystem.component.scaffold.ScaffoldComponent
 import io.taptm.designsystem.component.scaffold.ScreenState
 import io.taptm.designsystem.theme.AppTheme
 import io.taptm.designsystem.theme.Body1
+import io.taptm.navigation.AppNavRoute
 import io.taptm.network.utils.PreviewProvider
 import io.taptm.tops.screens.details.mapper.DetailsMapper
 import io.taptm.tops.screens.details.presentation.Effect.Navigation
 import org.koin.androidx.compose.koinViewModel
+import org.koin.core.parameter.parametersOf
 
 @Composable
 internal fun DetailsScreen(
-    vm: DetailsVM = koinViewModel(),
+    args: AppNavRoute.Details,
+    vm: DetailsVM = koinViewModel(parameters = { parametersOf(args) }),
     onNavigation: (Navigation) -> Unit
 ) {
     LaunchedEffect(Unit) {

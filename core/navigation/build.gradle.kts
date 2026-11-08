@@ -10,6 +10,8 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    api(libs.navigation3.runtime)
+    implementation(libs.coroutines.android)
 
     implementation(libs.kotlinx.serialization.json)
 }

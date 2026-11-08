@@ -1,8 +1,6 @@
 package io.taptm.tops.screens.details.presentation
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.toRoute
 import io.taptm.common.arch.BaseMviViewModel
 import io.taptm.designsystem.component.scaffold.ScreenState
 import io.taptm.navigation.AppNavRoute
@@ -10,14 +8,14 @@ import io.taptm.network.models.RepoResult
 import io.taptm.tops.screens.details.repo.DetailsRepo
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
+import org.koin.core.annotation.InjectedParam
 
 @KoinViewModel
 internal class DetailsVM(
-    savedStateHandle: SavedStateHandle,
+    @InjectedParam private val args: AppNavRoute.Details,
     private val repo: DetailsRepo
 ) : BaseMviViewModel<Event, State, Effect>() {
 
-    private val args = savedStateHandle.toRoute<AppNavRoute.Details>()
 
     override fun createInitialState(): State = State(ScreenState.Loading)
 
