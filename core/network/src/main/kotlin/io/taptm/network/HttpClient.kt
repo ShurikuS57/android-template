@@ -1,10 +1,12 @@
 package io.taptm.network
 
+import android.content.Context
 import com.pluto.plugins.network.interceptors.ktor.PlutoKtorInterceptor
 import io.github.openflocon.flocon.ktor.FloconKtorPlugin
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.DefaultRequest
+import io.ktor.client.plugins.HttpSend
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -12,12 +14,15 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.observer.ResponseObserver
+import io.ktor.client.plugins.plugin
 import io.ktor.client.request.accept
 import io.ktor.client.request.header
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
+import io.taptm.network.mock.MockProvider
+import io.taptm.network.mock.MockSettings
 import kotlinx.serialization.json.Json
 import org.koin.core.annotation.Property
 import org.koin.core.annotation.Single
@@ -28,7 +33,9 @@ private const val NETWORK_CONNECT_TIME_OUT = 15_000L
 
 @Single
 internal fun httpClientAndroid(
+    context: Context,
     @Property("URL") serverUrl: String,
+    @Property("MOCK_ENABLED") mockEnabled: Boolean,
 ) = HttpClient(Android) {
     install(FloconKtorPlugin)
     install(ContentNegotiation) {
@@ -74,5 +81,10 @@ internal fun httpClientAndroid(
         url(serverUrl)
         contentType(ContentType.Application.Json)
         accept(ContentType.Application.Json)
+    }
+}.apply {
+    MockSettings.isEnabled = mockEnabled
+    plugin(HttpSend).intercept { request ->
+        MockProvider.intercept(context.applicationContext, request) { execute(it) }
     }
 }

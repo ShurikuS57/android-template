@@ -37,6 +37,7 @@ class App : Application(), KoinStartup, SingletonImageLoader.Factory {
             mapOf(
                 "FLAVOR" to BuildConfig.FLAVOR,
                 "URL" to BuildConfig.URL,
+                "MOCK_ENABLED" to BuildConfig.MOCK_ENABLED,
             )
         )
         modules(AppModule().module)

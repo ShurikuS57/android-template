@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "v4/top/anime",
+      "asset": "mock/top/200_anime_top.json",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "v4/top/manga",
+      "asset": "mock/top/200_manga_top.json",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "pathRegex": "v4/anime/.+",
+      "asset": "mock/details/200_anime_details.json",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "pathRegex": "v4/manga/.+",
+      "asset": "mock/details/200_manga_details.json",
+      "status": 200
+    }
+  ]
+}

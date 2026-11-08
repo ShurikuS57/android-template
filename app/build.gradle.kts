@@ -19,6 +19,10 @@ val versionPatch = libs.versions.versionPatch.get().toInt()
 val versionCodeValue = versionMajor * 10000 + versionMinor * 100 + versionPatch
 val versionNameValue = "${versionMajor}.${versionMinor}.${versionPatch}"
 
+// Mock responses are enabled by default for debug builds and disabled for release builds.
+// Override with `-PmockEnabled=true|false` or `mockEnabled=...` in gradle.properties.
+val mockEnabled = providers.gradleProperty("mockEnabled").orNull?.toBooleanStrictOrNull()
+
 fun getVersionCode(): Int {
     val taskName = gradle.startParameter.taskNames.toString()
     println("task name: $taskName")
@@ -89,6 +93,7 @@ android {
             isDebuggable = true
             versionNameSuffix = "-debug"
             applicationIdSuffix = ".debug"
+            buildConfigField("boolean", "MOCK_ENABLED", "${mockEnabled ?: true}")
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
 
@@ -96,6 +101,7 @@ android {
             isMinifyEnabled = true
             isDebuggable = false
             isShrinkResources = true
+            buildConfigField("boolean", "MOCK_ENABLED", "${mockEnabled ?: false}")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
